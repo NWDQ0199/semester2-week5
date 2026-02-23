@@ -49,38 +49,55 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-int main(void) {
+int main(void)
+{
     int loan_type;
     int age;
     int credit_score;
     double income;
-    double max_loan = 0.0;
-    bool approved = false;
+    double max_loan=0.0;
+    bool approved=true;
+    char* loan_str;
 
     /* Input */
     printf("Enter loan type (1-Home, 2-Car, 3-Personal): ");
-    scanf("%d", &loan_type);
+    scanf("%d",&loan_type);
 
     printf("Enter age: ");
-    scanf("%d", &age);
+    scanf("%d",&age);
 
     printf("Enter monthly income: ");
-    scanf("%lf", &income);
+    scanf("%lf",&income);
 
     printf("Enter credit score: ");
-    scanf("%d", &credit_score);
+    scanf("%d",&credit_score);
 
     /* subtask1: Age eligibility check */
 	// Complete your code here
-
+    if(age<21||age>80)
+    {
+        approved=false;
+    }
 
 
     /* subtask 2: Loan-specific checks using switch*/
 	// Complete your code here
-    switch (loan_type) {
+    switch(loan_type)
+    {
         case 1:
+            max_loan=income*20.0;
+            loan_str="Home Loan";
+            if(income<5000||credit_score<700) approved=false;
             break;
-
+        case 2:
+            max_loan=income*60.0;
+            loan_str="Car Loan";
+            if(income<3000||credit_score<650) approved=false;
+            break;
+        case 3:
+            max_loan=income*10.0;
+            loan_str="Personal Loan";
+            if(income<2000||credit_score<600) approved=false;
         default:
             printf("Invalid loan type\n");
             return 1;
@@ -88,10 +105,13 @@ int main(void) {
 
     /* subtask 3: Output result */
 	// Complete your code here
-	if (approved) {
-		// todo
+	if(approved)
+    {
+        printf("Loan type: %s\nLoan status: Approved\nMaximum loan amount: %lf",loan_str,max_loan);
 	}
-
-
+    else
+    {
+        printf("Loan status: Rejected (Criteria not met)");
+    }
     return 0;
 }
