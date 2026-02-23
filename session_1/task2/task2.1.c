@@ -26,13 +26,15 @@
 #include <stdio.h>
 #include <stdlib.h>  // Required for atof() function
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     float num1, num2;
     char operation;
     float result;
     
     // Check if the correct number of arguments is provided
-    if (argc != 4) {
+    if (argc != 4)
+    {
         printf("Usage: %s number1 operation number2\n", argv[0]);
         printf("Example: %s 5.0 + 3.5\n", argv[0]);
         printf("Operations: +, -, x, /\n");  // Note 'x' instead of '*'
@@ -41,16 +43,28 @@ int main(int argc, char *argv[]) {
     
     // Convert command-line arguments to numbers and operation
     // atof() converts a string (ASCII) to a floating-point (float) number
-    num1 = atof(argv[1]);  // Convert first argument to float
-    operation = argv[2][0];  // Just take the first character of the second argument
-    num2 = atof(argv[3]);  // Convert third argument to float
-    
+    num1=atof(argv[1]);  // Convert first argument to float
+    operation=argv[2][0];  // Just take the first character of the second argument
+    num2=atof(argv[3]);  // Convert third argument to float
+
     // Complete your code here
-	switch(operation){
-		case :
+	switch(operation)
+    {
+		case '+':
+            result=num1+num2;
+            break;
+        case '-':
+            result=num1-num2;
+            break;
+        case 'x':
+            result=num1*num2;
+            break;
+        case '/':
+            result=num1/num2;
             break;
 		default:
 			printf("Operation not defined!\n");
+            break;
 	}
     
     printf("Result: %.2f\n", result);
