@@ -19,20 +19,54 @@
 #include <math.h>
 #include <stdlib.h>   //for atof()
 
-int main(int argc, char *argv[]) {
-	
-	if (argc != 4) {
+int main(int argc, char *argv[])
+{
+	if(argc!=4)
+    {
         printf("Usage: %s <a> <b> <c>\n", argv[0]);
         printf("Example: %s 1 -5 6\n", argv[0]);
         return 1;
     }
 
     // Convert string arguments to floats
-    float a = atof(argv[1]);
-    float b = atof(argv[2]);
-    float c = atof(argv[3]);
+    float a=atof(argv[1]);
+    float b=atof(argv[2]);
+    float c=atof(argv[3]);
 	
 	//complete the rest of the code
-	
+	if(a==0)
+    {
+        printf("Linear equation\n");
+    }
+    float disc=b*b-4*a*c;
+    if(disc>0)
+    {
+        float x1;
+        float x2;
+        float sqrtDisc=sqrt(disc);
+        x1=(-b-sqrtDisc)/(2*a);
+        x2=(-b+sqrtDisc)/(2*a);
+        printf("%f, %f",x1,x2);
+    }
+    else if(disc==0)
+    {
+        float x;
+        x=-b/(2*a);
+        printf("%f",x);
+    }
+    else if(disc)
+    {
+        float a;
+        float b1;
+        float b2;
+        a=-b/(2*a);
+        float sqrtDisc=sqrt(-disc);
+        b1=(sqrtDisc)/(2*a);
+        b2=(-sqrtDisc)/(2*a);
+        printf("%f+%f",a,b1);
+        printf("i,");
+        printf("%f+%f",a,b2);
+        printf("i\n");
+    }
 	return 0;
 }
