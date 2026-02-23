@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
         float sqrtDisc=sqrt(disc);
         x1=(-b-sqrtDisc)/(2*a);
         x2=(-b+sqrtDisc)/(2*a);
-        printf("%f, %f",x1,x2);
+        printf("%f, %f\n",x1,x2);
     }
     else if(disc==0)
     {
@@ -54,18 +54,18 @@ int main(int argc, char *argv[])
         x=-b/(2*a);
         printf("%f",x);
     }
-    else if(disc)
+    else if(disc<0)
     {
-        float a;
+        float a0; //should be a but a is already defined
         float b1;
         float b2;
-        a=-b/(2*a);
+        a0=-b/(2*a);
         float sqrtDisc=sqrt(-disc);
         b1=(sqrtDisc)/(2*a);
         b2=(-sqrtDisc)/(2*a);
-        printf("%f+%f",a,b1);
-        printf("i,");
-        printf("%f+%f",a,b2);
+        printf("%f+%f",a0,b1);
+        printf("i, ");
+        printf("%f+%f",a0,b2);
         printf("i\n");
     }
 	return 0;
