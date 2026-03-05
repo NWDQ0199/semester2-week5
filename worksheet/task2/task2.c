@@ -32,7 +32,8 @@ int main(void)
 		//but this works and takes less long to write
 		long digit;
 		//printf("i: %i, c: _%c_\n",i,hex[i-1]);
-		switch(hex[i-1])
+		char chr=toupper(hex[i-1]);
+		switch(chr)
 		{
 			case '0':
 				digit=0; break;
