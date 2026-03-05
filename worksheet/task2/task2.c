@@ -25,13 +25,14 @@ int main(void)
 	//printf("hex: %s\n",hex);
 
 	long pow=1;
-	for(int i=strlen(hex)-1;i>=0;i--) //i=8 is the \0
+	for(int i=strlen(hex);i>=1;i--) //i=8 is the \0
 	{
 		//printf("i: %i\n",i);
 		//I could do this more efficiently with something like atoi for the 0-9 digits,
 		//but this works and takes less long to write
 		long digit;
-		switch(hex[i])
+		//printf("i: %i, c: _%c_\n",i,hex[i-1]);
+		switch(hex[i-1])
 		{
 			case '0':
 				digit=0; break;
@@ -66,11 +67,11 @@ int main(void)
 			case 'F':
 				digit=15; break;
 			case '\n':
-				digit=0; break;
+				digit=0; continue; //ignores the digit
 			case '\0':
-				digit=0; break;
+				digit=0; continue; //ignores the digit
 			default:
-				//printf("_%c_\n",hex[i]);
+				//printf("_%c_\n",hex[i-2]);
 				return invalid();
 		}
 		decimal+=pow*digit;
