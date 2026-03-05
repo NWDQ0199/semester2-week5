@@ -65,6 +65,10 @@ int main(void)
 				digit=14; break;
 			case 'F':
 				digit=15; break;
+			case '\n':
+				digit=0; break;
+			case '\0':
+				digit=0; break;
 			default:
 				//printf("_%c_\n",hex[i]);
 				return invalid();
